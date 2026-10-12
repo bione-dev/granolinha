@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'">
+  <title>Granolinha</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside id="sidebar">
+    <div class="brand">
+      <img src="assets/logo.svg" alt="" width="28" height="28">
+      <span>Granolinha</span>
+    </div>
+    <button id="new-meeting" class="primary" data-icon="new-meeting"><span>Nova reunião</span></button>
+    <ul id="meeting-list"></ul>
+    <button id="help-btn" class="ghost" data-icon="help"><span>Ajuda</span></button>
+  </aside>
+
+  <main id="editor" hidden>
+    <header class="title-row">
+      <input id="title" spellcheck="false">
+      <span id="badge"></span>
+      <button id="delete" class="ghost icon-only" title="Excluir reunião" data-icon="trash"></button>
+    </header>
+
+    <div class="toolbar">
+      <div class="rec-controls">
+        <button id="record" class="primary" data-icon="record"><span>Gravar</span></button>
+        <button id="pause" hidden></button>
+        <button id="stop" hidden data-icon="stop"><span>Encerrar</span></button>
+        <span id="meters">
+          <span class="meter" title="Microfone (Eu)"><i id="meter-mic"></i></span>
+          <span class="meter" title="Sistema (Eles)"><i id="meter-sys"></i></span>
+        </span>
+        <span id="status"></span>
+      </div>
+
+      <div class="devices">
+        <label title="Microfone (Eu)" data-icon="microphone"><select id="mic"></select></label>
+        <label title="Alto-falante capturado (Eles)" data-icon="speaker"><select id="output"></select></label>
+        <button class="help-icon icon-only" data-help="dispositivos" title="Sobre os dispositivos" data-icon="help"></button>
+        <label title="Motor de transcrição"><span id="engine-icon"></span>
+          <select id="engine">
+            <option value="nova3">Nova-3 (nuvem)</option>
+            <option value="whisper">Whisper (local)</option>
+          </select>
+        </label>
+        <button class="help-icon icon-only" data-help="motores" title="Sobre os motores" data-icon="help"></button>
+      </div>
+
+      <button id="enhance" data-icon="sparkles"><span>Gerar notas</span></button>
+    </div>
+
+    <div class="tabs">
+      <button data-tab="notes" class="active" data-icon="notes"><span>Minhas notas</span></button>
+      <button data-tab="enhanced" data-icon="notes-ai"><span>Notas melhoradas</span></button>
+    </div>
+
+    <section class="panes">
+      <textarea id="notes" placeholder="Anote os pontos principais enquanto a reunião acontece. Depois, clique em “Gerar notas”."></textarea>
+      <article id="enhanced" hidden></article>
+      <aside id="transcript-pane">
+        <h3>Transcrição</h3>
+        <div id="transcript"></div>
+      </aside>
+    </section>
+  </main>
+
+  <div id="empty">
+    <!-- Logo do app (opção 01 do pacote de ícones), com órbitas animadas. -->
+    <svg class="logo-anim" viewBox="0 0 1024 1024" aria-hidden="true">
+      <defs>
+        <linearGradient id="lg-tile" x1=".1" y1="0" x2=".92" y2="1"><stop stop-color="#26312D"/><stop offset=".47" stop-color="#1A2220"/><stop offset="1" stop-color="#0D1112"/></linearGradient>
+        <linearGradient id="lg-green2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#55B68D"/><stop offset=".52" stop-color="#A0F4BB"/><stop offset="1" stop-color="#377B70"/></linearGradient>
+        <radialGradient id="lg-glow"><stop stop-color="#74D3A8" stop-opacity=".25"/><stop offset="1" stop-color="#74D3A8" stop-opacity="0"/></radialGradient>
+      </defs>
+      <rect x="70" y="66" rx="240" width="884" height="884" fill="url(#lg-tile)" stroke="#36433F" stroke-width="6"/>
+      <circle class="glow" cx="502" cy="488" r="410" fill="url(#lg-glow)"/>
+      <g class="orbit orbit-a">
+        <ellipse cx="512" cy="520" rx="330" ry="165" transform="rotate(-36 512 520)" fill="none" stroke="#3D9A83" opacity=".78" stroke-width="27"/>
+      </g>
+      <g class="orbit orbit-b">
+        <ellipse cx="512" cy="520" rx="330" ry="165" transform="rotate(36 512 520)" fill="none" stroke="url(#lg-green2)" opacity=".84" stroke-width="26"/>
+        <circle cx="242" cy="360" r="31" fill="#96F3B8"/>
+        <circle cx="761" cy="666" r="26" fill="#79DCA1"/>
+      </g>
+      <g class="mic">
+        <rect x="457" y="331" width="110" height="283" rx="55" fill="#F0FFF7"/>
+        <path d="M407 513v48c0 63 47 112 105 112s105-49 105-112v-48" fill="none" stroke="#F0FFF7" stroke-width="29" stroke-linecap="round"/>
+        <path d="M512 674v85M433 760h158" fill="none" stroke="#F0FFF7" stroke-width="28" stroke-linecap="round"/>
+      </g>
+    </svg>
+    <p>Crie uma reunião para começar.</p>
+  </div>
+
+  <div id="modal" hidden>
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <button id="modal-close" class="ghost icon-only" title="Fechar" data-icon="close"></button>
+      <nav id="help-nav"></nav>
+      <article id="help-body"></article>
+    </div>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="animations.js"></script>
+  <script src="markdown.js"></script>
+  <script src="help.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

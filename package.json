@@ -1,0 +1,25 @@
+{
+  "name": "granolinha",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Bloco de notas de reunião com transcrição ao vivo e notas melhoradas por IA (inspirado no Granola).",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bione-dev/granolinha.git"
+  },
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:native": "cd native/loopback && go build -o ../loopback.exe .",
+    "build:exe": "node scripts/make-exe.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.133.0",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "electron": "^37.0.0",
+    "rcedit": "^5.0.2"
+  }
+}

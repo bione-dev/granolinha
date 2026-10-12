@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024"><defs>
+<linearGradient id="tile" x1=".1" y1="0" x2=".92" y2="1" objectBoundingBox="true"><stop stop-color="#26312D"/><stop offset=".47" stop-color="#1A2220"/><stop offset="1" stop-color="#0D1112"/></linearGradient>
+<linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#AAFFD0"/><stop offset=".4" stop-color="#72DFA3"/><stop offset="1" stop-color="#3F927C"/></linearGradient>
+<linearGradient id="green2" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#55B68D"/><stop offset=".52" stop-color="#A0F4BB"/><stop offset="1" stop-color="#377B70"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#74D3A8" stop-opacity=".25"/><stop offset="1" stop-color="#74D3A8" stop-opacity="0"/></radialGradient>
+<filter id="shadow" x="-.3" y="-.3" width="1.6" height="1.8"><feGaussianBlur stdDeviation="28"/></filter>
+</defs><rect x="78" y="99" rx="246" width="868" height="868" fill="#000" opacity=".28" filter="url(#shadow)"/><rect x="70" y="66" rx="240" width="884" height="884" fill="url(#tile)" stroke="#36433F" stroke-width="6"/><circle cx="502" cy="488" r="410" fill="url(#glow)"/>
+<g fill="none" stroke-linecap="round">
+<ellipse cx="512" cy="520" rx="330" ry="165" transform="rotate(-36 512 520)" stroke="#3D9A83" opacity=".78" stroke-width="27"/>
+<ellipse cx="512" cy="520" rx="330" ry="165" transform="rotate(36 512 520)" stroke="url(#green2)" opacity=".84" stroke-width="26"/>
+</g>
+<circle cx="242" cy="360" r="31" fill="#96F3B8"/><circle cx="761" cy="666" r="26" fill="#79DCA1"/>
+<rect x="457" y="331" width="110" height="283" rx="55" fill="#F0FFF7"/>
+<path d="M407 513v48c0 63 47 112 105 112s105-49 105-112v-48" fill="none" stroke="#F0FFF7" stroke-width="29" stroke-linecap="round"/>
+<path d="M512 674v85M433 760h158" fill="none" stroke="#F0FFF7" stroke-width="28" stroke-linecap="round"/>
+</svg>

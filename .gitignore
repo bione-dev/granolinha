@@ -1,0 +1,17 @@
+# Dependências e artefatos gerados
+node_modules/
+app-win/
+native/loopback.exe
+
+# Whisper: binários e modelo (~1,2 GB), veja o README
+whisper/
+
+# Segredos: nunca versionar
+.env
+.env.*
+!.env.example
+
+# Diversos
+*.log
+.DS_Store
+Thumbs.db
